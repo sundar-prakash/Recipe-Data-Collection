@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Recipe Delivery App 🚀
 
-## Getting Started
+[![Next.js](https://img.shields.io/badge/Next.js-16-blue)](https://nextjs.org/)
+[![Supabase](https://img.shields.io/badge/Supabase-black)](https://supabase.com/)
+[![Vercel](https://img.shields.io/badge/Vercel-Deployed-black)](https://vercel.com/)
 
-First, run the development server:
+**Secure, scalable recipe management platform** parsing JSON datasets into a production-ready API with pagination, sorting, full-text search, and responsive dashboard. Developed for **S.A. Engineering College Seurin Placement** showcasing **Security Analyst** competencies: Row Level Security (RLS), JWT auth, SQL injection prevention, and audit logging.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Features
+- **Data Pipeline**: JSON parsing → NaN handling → Supabase PostgreSQL ingestion
+- **RESTful APIs**: `/api/recipes` (paginated/sorted), `/api/recipes/search` (multi-filter: rating<=4.5, title~="pie", serves="4")
+- **Frontend**: Tailwind table with star ratings, detailed recipe view (ingredients, instructions), cell-level filtering, 10-50 pagination
+- **Security**: Supabase RLS policies, CORS, rate limiting, secure env vars
+- **Fallback UI**: "No recipes found" screens
+- **Advanced Filters**: 
+    - **Cuisine**: Case-insensitive search
+    - **Serves**: Filter by serving size
+    - **Time**: Filter by max prep time
+
+**Student**: Sundar Prakash P | **CSSB Dept** | **Reg: 111922CW01043**
+
+## 🛠️ Tech Stack
+- **Frontend**: Next.js 16 (App Router), TypeScript, Tailwind CSS, Lucide Icons
+- **Backend**: Supabase (PostgreSQL), Next.js API Routes
+- **Deployment**: Vercel (auto-deploys from GitHub)
+- **Security**: RLS, input sanitization
+
+## 📱 Live Demo
+[![Deployed App](https://via.placeholder.com/800x400?text=Recipe+Delivery+App+Screenshot)](https://your-app.vercel.app)
+
+**API Docs**: `/api/recipes?page=1&limit=20`
+
+## 🏗️ Database Schema
+```sql
+CREATE TABLE recipes (
+    id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    title TEXT NOT NULL,
+    cuisine TEXT,
+    rating FLOAT,
+    prep_time INT,
+    cook_time INT,
+    total_time INT,
+    description TEXT,
+    nutrients JSONB,
+    serves TEXT,
+    url_link TEXT,
+    continent TEXT,
+    country_state TEXT,
+    ingredients TEXT[],
+    instructions TEXT[]
+);
+
+-- Enable Row Level Security
+ALTER TABLE recipes ENABLE ROW LEVEL SECURITY;
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Quick Start
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
+- Node.js 18+
+- [Supabase Account](https://supabase.com)
+- GitHub account
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. Clone & Install
+```bash
+git clone https://github.com/sundar-prakash/Recipe-Data-Collection
+cd Recipe-Data-Collection
+npm install
+```
 
-## Learn More
+### 2. Environment Setup
+Create `.env.local`:
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 3. Seed Database
+```bash
+npm run seed  # Parses recipes JSON, handles NaN→NULL
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4. Run Locally
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 5. Deploy to Vercel
+1. Push to GitHub
+2. Connect repo at [vercel.com](https://vercel.com)
+3. Add env vars in Vercel dashboard
+4. Deploy! ✅
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📊 API Endpoints
+
+```http
+GET /api/recipes?page=1&limit=20
+GET /api/recipes/search?title=pie&rating=<=4.5&serves=4&total_time=<=30
+GET /api/recipes/[id]
+```
+
+## 📄 License
+MIT © Sundar Prakash P
+
+**Looking for Security Analyst roles** – Contact: [Email](mailto:sundarprakash603@gmail.com) | [LinkedIn](https://linkedin.com/in/sundar-prakash)
