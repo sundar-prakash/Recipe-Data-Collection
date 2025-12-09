@@ -4,6 +4,14 @@
 [![Supabase](https://img.shields.io/badge/Supabase-black)](https://supabase.com/)
 [![Vercel](https://img.shields.io/badge/Vercel-Deployed-black)](https://vercel.com/)
 
+## Screenshots
+
+![Recipe Delivery App](/recipe-app/screenshots/1.jpeg)
+![2](/recipe-app/screenshots/2.jpeg)
+![3](/recipe-app/screenshots/3.jpeg)
+![4](/recipe-app/screenshots/4.jpeg)
+
+
 **Secure, scalable recipe management platform** parsing JSON datasets into a production-ready API with pagination, sorting, full-text search, and responsive dashboard. Developed for **S.A. Engineering College Seurin Placement** showcasing **Security Analyst** competencies: Row Level Security (RLS), JWT auth, SQL injection prevention, and audit logging.
 
 ## ✨ Features
@@ -26,7 +34,7 @@
 - **Security**: RLS, input sanitization
 
 ## 📱 Live Demo
-[![Deployed App](https://via.placeholder.com/800x400?text=Recipe+Delivery+App+Screenshot)](https://your-app.vercel.app)
+[Deployed App](https://recipe-data-collection-rose.vercel.app/)
 
 **API Docs**: `/api/recipes?page=1&limit=20`
 
