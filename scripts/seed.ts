@@ -45,19 +45,19 @@ async function seed() {
 
             return {
                 title: recipe.title,
-                cuisine: recipe.cuisine,
-                rating: parseNumber(recipe.rating),
-                prep_time: parseNumber(recipe.prep_time),
-                cook_time: parseNumber(recipe.cook_time),
-                total_time: parseNumber(recipe.total_time),
-                description: recipe.description,
-                nutrients: recipe.nutrients,
-                serves: recipe.serves,
-                url_link: recipe.URL, // Correct mapping
-                continent: recipe.Contient, // Typo in JSON
-                country_state: recipe.Country_State,
-                ingredients: recipe.ingredients,
-                instructions: recipe.instructions
+                cuisine: recipe.cuisine || 'Unknown',
+                rating: parseNumber(recipe.rating) || 0,
+                prep_time: parseNumber(recipe.prep_time) || 0,
+                cook_time: parseNumber(recipe.cook_time) || 0,
+                total_time: parseNumber(recipe.total_time) || 0,
+                description: recipe.description || '',
+                nutrients: recipe.nutrients || {},
+                serves: recipe.serves || '',
+                url_link: recipe.URL || '', // Correct mapping
+                continent: recipe.Contient || 'Unknown', // Typo in JSON
+                country_state: recipe.Country_State || 'Unknown',
+                ingredients: recipe.ingredients || [],
+                instructions: recipe.instructions || []
             };
         }).filter((recipe: any) => recipe.title && recipe.title.trim() !== '');
 

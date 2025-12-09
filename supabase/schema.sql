@@ -6,19 +6,19 @@ CREATE TABLE recipes (
     id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     created_at TIMESTAMPTZ DEFAULT NOW(),
     title TEXT NOT NULL,
-    cuisine TEXT,
-    rating FLOAT,
-    prep_time INT,
-    cook_time INT,
-    total_time INT,
-    description TEXT,
-    nutrients JSONB,
-    serves TEXT,
-    url_link TEXT,
-    continent TEXT,
-    country_state TEXT,
-    ingredients TEXT[],
-    instructions TEXT[]
+    cuisine TEXT DEFAULT 'Unknown',
+    rating FLOAT DEFAULT 0,
+    prep_time INT DEFAULT 0,
+    cook_time INT DEFAULT 0,
+    total_time INT DEFAULT 0,
+    description TEXT DEFAULT '',
+    nutrients JSONB DEFAULT '{}'::jsonb,
+    serves TEXT DEFAULT '',
+    url_link TEXT DEFAULT '',
+    continent TEXT DEFAULT 'Unknown',
+    country_state TEXT DEFAULT 'Unknown',
+    ingredients TEXT[] DEFAULT '{}',
+    instructions TEXT[] DEFAULT '{}'
 );
 
 -- Enable Row Level Security
