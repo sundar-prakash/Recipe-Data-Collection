@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Recipe Delivery App",
+  title: "Recipe Data App",
   description: "Secure, scalable recipe management platform",
 };
 
