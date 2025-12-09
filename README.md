@@ -6,10 +6,10 @@
 
 ## Screenshots
 
-![Recipe Delivery App](/recipe-app/screenshots/1.jpeg)
-![2](/recipe-app/screenshots/2.jpeg)
-![3](/recipe-app/screenshots/3.jpeg)
-![4](/recipe-app/screenshots/4.jpeg)
+![Recipe Delivery App](/screenshots/1.jpeg)
+![2](/screenshots/2.jpeg)
+![3](/screenshots/3.jpeg)
+![4](/screenshots/4.jpeg)
 
 
 **Secure, scalable recipe management platform** parsing JSON datasets into a production-ready API with pagination, sorting, full-text search, and responsive dashboard. Developed for **S.A. Engineering College Seurin Placement** showcasing **Security Analyst** competencies: Row Level Security (RLS), JWT auth, SQL injection prevention, and audit logging.
